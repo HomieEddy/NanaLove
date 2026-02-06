@@ -17,19 +17,19 @@ const App: React.FC = () => {
         {[...Array(60)].map((_, i) => (
           <motion.div
             key={i}
-            initial={{ 
-              top: `${Math.random() * 100}%`, 
+            initial={{
+              top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
               scale: Math.random() * 0.5 + 0.2,
               opacity: 0.15
             }}
-            animate={{ 
+            animate={{
               y: [0, -200, 0],
               x: [0, Math.random() * 100 - 50, 0],
               rotate: [0, 360],
               opacity: [0.15, 0.4, 0.15]
             }}
-            transition={{ 
+            transition={{
               duration: Math.random() * 20 + 20,
               repeat: Infinity,
               ease: "linear",
@@ -80,19 +80,19 @@ const App: React.FC = () => {
         )}
       </AnimatePresence>
 
-      <motion.div 
+      <motion.div
         className="absolute bottom-4 left-0 w-full flex items-center justify-center pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
       >
         <motion.div
-          animate={{ 
-            x: ["-55vw", "55vw"] 
+          animate={{
+            x: ["-55vw", "55vw"]
           }}
-          transition={{ 
-            repeat: Infinity, 
-            duration: 20, 
+          transition={{
+            repeat: Infinity,
+            duration: 20,
             ease: "linear",
             repeatType: "mirror"
           }}

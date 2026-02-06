@@ -18,6 +18,7 @@ const NO_MESSAGES = [
   "Fini les food adventures !",
   "Je vais laisser les aliens te prendre",
   "Patate Yukon !",
+  "Patate Russet !",
   "Tu me brises le cœur ;(",
 ];
 
