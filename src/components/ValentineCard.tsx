@@ -28,8 +28,8 @@ const ValentineCard: React.FC<ValentineCardProps> = ({ onYes }) => {
   const [yesSize, setYesSize] = useState(1);
   const [noSize, setNoSize] = useState(1);
 
-  const { play: playNoSound } = useSound('/audio/no-sound.mp3');
-  const { play: playYesSound } = useSound('/audio/yes-sound.mp3');
+  const { play: playNoSound } = useSound('audio/no-sound.mp3');
+  const { play: playYesSound } = useSound('audio/yes-sound.mp3');
 
   const handleNoClick = () => {
     playNoSound();

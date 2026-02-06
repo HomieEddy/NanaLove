@@ -4,8 +4,8 @@ import confetti from 'canvas-confetti';
 import { useSound } from '../hooks/useSound';
 
 const Celebration: React.FC = () => {
-  const { play: playYesSound } = useSound('/audio/yes-sound.mp3');
-  const { play: playMusic } = useSound('/audio/background-music.mp3', { loop: true, volume: 0.5 });
+  const { play: playYesSound } = useSound('audio/yes-sound.mp3');
+  const { play: playMusic } = useSound('audio/background-music.mp3', { loop: true, volume: 0.5 });
 
   useEffect(() => {
         playYesSound();
