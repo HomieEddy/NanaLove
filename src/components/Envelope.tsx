@@ -14,7 +14,7 @@ const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
       whileHover={{ scale: 1.05 }}
       onClick={onOpen}
     >
-      <div className="relative w-[450px] h-[320px] bg-white border-4 border-pink-200 rounded-xl shadow-2xl flex items-center justify-center overflow-hidden">
+      <div className="relative w-[70vw] max-w-[450px] h-[50vw] max-h-[320px] bg-white border-4 border-pink-200 rounded-xl shadow-2xl flex items-center justify-center overflow-hidden">
         {/* Envelope Flap */}
         <motion.div
           className="absolute top-0 left-0 w-full h-1/2 bg-pink-100 border-b-4 border-pink-200 origin-top z-20"
@@ -28,7 +28,7 @@ const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
           <motion.div
             animate={{ scale: [1, 1.2, 1] }}
             transition={{ repeat: Infinity, duration: 2 }}
-            className="text-red-500 text-7xl"
+            className="text-4xl md:text-7xl"
           >
             ❤️
           </motion.div>
@@ -36,10 +36,13 @@ const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
 
         {/* Interior Card Peek */}
         <div className="absolute inset-4 bg-pink-50 rounded shadow-inner flex flex-col items-center justify-center z-10">
+          <p className="text-pink-600 font-serif italic text-xl md:text-4xl font-black text-center px-4">
+            Pour Toi...
+          </p>
         </div>
       </div>
 
-      <p className="text-center mt-8 text-pink-700 font-black text-2xl animate-pulse tracking-wide uppercase">
+      <p className="text-center mt-6 text-pink-700 font-black text-lg md:text-2xl animate-pulse tracking-wide uppercase">
         Clique pour ouvrir
       </p>
     </motion.div>

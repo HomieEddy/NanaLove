@@ -3,6 +3,7 @@ import Envelope from './components/Envelope';
 import ValentineCard from './components/ValentineCard';
 import Celebration from './components/Celebration';
 import Potato from './components/Potato';
+import TiltCard from './components/TiltCard';
 import { motion, AnimatePresence } from 'framer-motion';
 
 type Step = 'envelope' | 'card' | 'celebration';
@@ -11,31 +12,33 @@ const App: React.FC = () => {
   const [step, setStep] = useState<Step>('envelope');
 
   return (
-    <div className="h-screen w-screen flex items-center justify-center bg-[#FFD1DC] overflow-hidden relative p-4">
-      {/* Background Hearts */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+    <div className="h-screen w-screen flex items-center justify-center bg-[#FFD1DC] overflow-hidden relative p-4 perspective-1000">
+      {/* Background Hearts - Interactive */}
+      <div className="fixed inset-0 pointer-events-auto overflow-hidden z-0">
         {[...Array(60)].map((_, i) => (
           <motion.div
             key={i}
-            initial={{
-              top: `${Math.random() * 100}%`,
+            initial={{ 
+              top: `${Math.random() * 100}%`, 
               left: `${Math.random() * 100}%`,
               scale: Math.random() * 0.5 + 0.2,
               opacity: 0.15
             }}
-            animate={{
+            animate={{ 
               y: [0, -200, 0],
               x: [0, Math.random() * 100 - 50, 0],
               rotate: [0, 360],
               opacity: [0.15, 0.4, 0.15]
             }}
-            transition={{
+            whileHover={{ scale: 1.5, opacity: 1, rotate: 180 }}
+            whileTap={{ scale: 0, opacity: 0 }}
+            transition={{ 
               duration: Math.random() * 20 + 20,
               repeat: Infinity,
               ease: "linear",
               delay: Math.random() * -20
             }}
-            className="absolute text-pink-300 text-4xl"
+            className="absolute text-pink-300 text-4xl cursor-pointer select-none"
           >
             ❤️
           </motion.div>
@@ -52,7 +55,9 @@ const App: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="z-10 flex items-center justify-center"
           >
-            <Envelope onOpen={() => setStep('card')} />
+            <TiltCard>
+              <Envelope onOpen={() => setStep('card')} />
+            </TiltCard>
           </motion.div>
         )}
 
@@ -63,8 +68,11 @@ const App: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.5 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            className="z-10"
           >
-            <ValentineCard onYes={() => setStep('celebration')} />
+            <TiltCard>
+              <ValentineCard onYes={() => setStep('celebration')} />
+            </TiltCard>
           </motion.div>
         )}
 
@@ -74,12 +82,12 @@ const App: React.FC = () => {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", duration: 0.8 }}
+            className="z-10"
           >
             <Celebration />
           </motion.div>
         )}
       </AnimatePresence>
-
       <motion.div
         className="absolute bottom-4 left-0 w-full flex items-center justify-center pointer-events-none"
         initial={{ opacity: 0 }}

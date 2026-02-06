@@ -8,10 +8,10 @@ interface PotatoProps {
 const Potato: React.FC<PotatoProps> = ({ isCelebration }) => {
   return (
     <motion.div 
-      className="relative w-56 h-56 pointer-events-none origin-bottom"
+      className="relative w-32 h-32 md:w-56 md:h-56 pointer-events-none origin-bottom"
       animate={{ 
-        scale: isCelebration ? 3 : 1,
-        y: isCelebration ? -100 : 0
+        scale: isCelebration ? 2.5 : 1, // Slightly reduced scale for mobile
+        y: isCelebration ? -50 : 0 // Adjusted lift for mobile
       }}
       transition={{ 
         type: "spring", 
