@@ -8,13 +8,12 @@ const Celebration: React.FC = () => {
   const { play: playMusic } = useSound('/audio/background-music.mp3', { loop: true, volume: 0.5 });
 
   useEffect(() => {
-    playYesSound();
-
-    // Wait 3 seconds before starting the background music
-    const timer = setTimeout(() => {
-      playMusic();
-    }, 3000);
-
+        playYesSound();
+        
+        // Wait 3 seconds before starting the background music
+        setTimeout(() => {
+          playMusic();
+        }, 3000);
     const duration = 15 * 1000;
     const animationEnd = Date.now() + duration;
     const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
