@@ -10,17 +10,18 @@ const NO_MESSAGES = [
   "Non",
   "Tu es sûre ?",
   "Ey !! Réfléchis encore",
-  "Conforme toi loh !",
+  "Conforme toi svp !",
   "Dernière chance !",
   "Ey la ! Ca va faire !",
   "Arrete moi ca !",
-  "Je vais plus cuire de steak !",
-  "Je vais plus cuire de crevettes !",
+  "Je vais le dire à Gary !",
+  "je vais le dire a Sabine !",
+  "Je vais reprendre tout mes hoodies !",
+  "Je vais plus cuire de steak/crevettes !",
   "Fini les food adventures !",
-  "Je vais laisser les aliens te prendre",
   "Patate Yukon !",
   "Patate Russet !",
-  "Tu me brises le cœur ;(",
+  "Je vais kidnapper Myla !",
 ];
 
 const ValentineCard: React.FC<ValentineCardProps> = ({ onYes }) => {
@@ -60,7 +61,7 @@ const ValentineCard: React.FC<ValentineCardProps> = ({ onYes }) => {
       >
         💝
       </motion.div>
-      <h1 className="text-xl md:text-3xl font-bold text-pink-600 mb-4 md:mb-8 leading-tight">
+      <h1 className="text-sm xs:text-base sm:text-lg md:text-2xl lg:text-3xl font-bold text-pink-600 mb-4 md:mb-8 leading-tight whitespace-nowrap">
         Veux-tu être ma Valentine ?
       </h1>
 
@@ -69,9 +70,9 @@ const ValentineCard: React.FC<ValentineCardProps> = ({ onYes }) => {
           <div className="w-24 md:w-32 flex items-center justify-center">
             <motion.button
               style={{ scale: yesSize }}
-              className="bg-valentine-red hover:opacity-90 text-white font-bold py-2 md:py-3 px-4 md:px-8 rounded-full shadow-lg transition-colors z-50 whitespace-nowrap text-sm md:text-base"
+              className="bg-valentine-red hover:opacity-90 text-white font-bold py-2 md:py-3 px-2 md:px-6 rounded-full shadow-lg transition-colors z-50 whitespace-nowrap text-xs sm:text-sm md:text-base"
               onClick={handleYesClick}
-              whileHover={{ scale: yesSize * 1.1 }}
+              whileHover={{ scale: yesSize * 1.2 }}
               whileTap={{ scale: yesSize * 0.9 }}
             >
               Oui
@@ -87,7 +88,7 @@ const ValentineCard: React.FC<ValentineCardProps> = ({ onYes }) => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 md:py-3 px-4 md:px-8 rounded-full shadow-md transition-colors whitespace-nowrap text-sm md:text-base"
+                  className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 md:py-3 px-2 md:px-6 rounded-full shadow-md transition-colors whitespace-nowrap text-xs sm:text-sm md:text-base"
                   onClick={handleNoClick}
                 >
                   {NO_MESSAGES[Math.min(noCount, NO_MESSAGES.length - 1)]}
@@ -102,9 +103,9 @@ const ValentineCard: React.FC<ValentineCardProps> = ({ onYes }) => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-pink-500 text-base md:text-xl font-medium px-2 truncate"
+              className="text-pink-500 text-xs sm:text-sm md:text-base lg:text-lg font-medium px-2 whitespace-nowrap"
             >
-              {noCount > 5 ? "La résistance est futile ! ❤️" : "S'il te plaît ? 🥺"}
+              {noCount > 5 ? "La résistance est futile !" : "Tu me brises le coeur 🥺"}
             </motion.p>
           )}
         </div>
